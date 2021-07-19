@@ -1,3 +1,5 @@
+package basic
+
 class ConditionalSentence {
     var a = 7
     fun conditionalExample(){

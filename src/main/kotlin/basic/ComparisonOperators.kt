@@ -1,3 +1,5 @@
+package basic
+
 class ComparativeOperators {
     //is : 자료형 동일여부 파악, 형변환까지 자동으로 진행한다.
     fun isExample() {

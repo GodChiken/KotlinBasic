@@ -1,3 +1,5 @@
+package basic
+
 class KotlinArray {
     // 코틀린에서 배열을 생성하는 함수이다.
     var intArray = arrayOf(1, 2, 3, 4)

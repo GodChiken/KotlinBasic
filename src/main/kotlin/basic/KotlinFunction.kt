@@ -1,3 +1,5 @@
+package basic
+
 class KotlinFunction {
     fun add(a: Int, b: Int, c: Int): Int {
         return a + b + c
