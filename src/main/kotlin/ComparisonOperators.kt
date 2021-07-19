@@ -32,6 +32,16 @@ class ComparativeOperators {
         }
         return result
     }
+    // 축약형
+    fun whenExampleReturnValue2(a: Any): Any {
+        return when (a) {
+            1 -> "아예 값으로 할당도 가능하다. 1"
+            2 -> "아예 값으로 할당도 가능하다. 2"
+            3 -> "아예 값으로 할당도 가능하다. 3"
+            4 -> "아예 값으로 할당도 가능하다. 4"
+            else -> println("아무 조건에 해당되는 사항이 없다.")
+        }
+    }
 }
 
 fun main() {
