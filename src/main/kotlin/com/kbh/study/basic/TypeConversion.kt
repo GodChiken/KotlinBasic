@@ -1,4 +1,4 @@
-package basic
+package com.kbh.study.basic
 
 class TypeConversion {
     //기본 자료형들은 type cast function을 toXXXX() 형식으로 제공한다.

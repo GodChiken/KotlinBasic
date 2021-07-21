@@ -1,4 +1,4 @@
-package basic
+package com.kbh.study.basic
 
 class ConditionalSentence {
     var a = 7

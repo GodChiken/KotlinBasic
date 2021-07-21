@@ -1,4 +1,4 @@
-package basic
+package com.kbh.study.basic
 
 class KotlinArray {
     // 코틀린에서 배열을 생성하는 함수이다.

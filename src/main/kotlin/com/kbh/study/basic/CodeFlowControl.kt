@@ -1,4 +1,4 @@
-package basic
+package com.kbh.study.basic
 
 class CodeFlowControl {
     // label

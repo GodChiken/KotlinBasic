@@ -1,4 +1,4 @@
-package `class`
+package com.kbh.study.`class`
 
 class KotlinConstructor(var name: String, var birthYear: Int) {
     // 코틀린의 기본 생성자이며 파라미터 및 반환형이 없다.

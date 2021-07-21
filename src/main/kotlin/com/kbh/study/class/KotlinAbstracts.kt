@@ -1,4 +1,4 @@
-package `class`
+package com.kbh.study.`class`
 
 fun main() {
     val bathRoom = BathRoom()

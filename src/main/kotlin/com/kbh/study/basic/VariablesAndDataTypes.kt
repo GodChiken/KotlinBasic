@@ -1,4 +1,4 @@
-package basic
+package com.kbh.study.basic
 
 // 코틀린은 고전적인 언어들과 차이점은 변수의 초기화가 이루어 지지 않은경우
 // 해당 변수의 기본값 혹은 null 로 초기화되지만, 기본적으로 null 을 허용하지 않으며 syntax error가 발생한다.

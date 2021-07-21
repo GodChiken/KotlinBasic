@@ -1,4 +1,4 @@
-package basic
+package com.kbh.study.basic
 
 class KotlinFunction {
     fun add(a: Int, b: Int, c: Int): Int {
