@@ -1,11 +1,11 @@
 package com.kbh.study.collection
 
 fun main() {
-    val nameList = mutableListOf("김보훈","김동훈","황경화","배창현","카산드라")
+    val nameList = mutableListOf("김보훈", "김동훈", "황경화", "배창현", "카산드라")
 
     // 컬렉션 함수로 컬렉션을 순환하여 값을 얻을때 다음과 같은 3가지 방식이 존재한다.
     println(nameList.filter { name -> name.startsWith("김") })
-    println(nameList.filter { name:String -> name.startsWith("김") })
+    println(nameList.filter { name: String -> name.startsWith("김") })
     // 처음에 it 이 컬렉션 함수내에서 제공하는 일종의 키워드인줄 알았으나 그렇지 않다. 잘못 소개된 글들도 많다.
     // 정확하게는 컬렉션 함수는 java iterator 를 통해서 작업을 진행하고 이 iterator에 파라미터 값으로 넘기는 매개변수의 명칭이 it일 뿐이다.
     println(nameList.filter { it.startsWith("김") })
