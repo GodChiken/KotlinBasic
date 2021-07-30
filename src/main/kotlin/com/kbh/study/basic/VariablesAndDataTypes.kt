@@ -20,16 +20,24 @@ class VariablesAndDataTypes {
     var integerTypeByBinary:Int = 0b10101
 
     var realNumberTypeByFloat:Float = 100f
-    var realNumberTypeByDouble:Double = 100.0
+    var realNumberTypeByDouble: Double = 100.0
+
     //필요 시 지수표기법이 추가 가능하다
-    var realNumberTypeByDouble2:Double = 111.1e10
+    var realNumberTypeByDouble2: Double = 111.1e10
+
     // 코틀린은 문자열을 내부적으로 UTF-16 BE 인코딩으로 관리함으로서 문자당 2byte를 소유한다.
-    var character:Char = '김'
-    var string1:String = "godchiken"
+    var character: Char = '김'
+    var string1: String = "godchiken"
     var string2 = "godchiken"
-    var multilineString:String = """multiLien
+    var multilineString: String = """multiLien
         이 가능한 문법이 생겼다.
     """
+
+    /**
+     * 타입을 생략하고 선언한 변수라고 해서 마음대로 다른 타입의 값을 넣울 수 없다.
+     * 초기화 하는 동시에 타입이 추론되기 때문이다.
+     * */
+    var integerVariable = 42
 }
 
 fun main() {
@@ -49,4 +57,6 @@ fun main() {
     println(keyword.string1)
     println(keyword.string2)
     println(keyword.multilineString)
+
+    // keyword.integerVariable = "put in another type" // compile error
 }
