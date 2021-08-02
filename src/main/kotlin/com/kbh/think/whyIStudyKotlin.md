@@ -1,30 +1,25 @@
 ---
-description: 관심분야를 공부하며 기억보단 기록을 하기위함
+description: 내가 코틀린을 시작하려는 이유
 ---
 
-# 게시물 출처
+# Kotlin
 
-잘못 정리된 자료가 있는경우 이메일로 연락주세요
+## 왜 코틀린인가?
 
-godchiken@naver.com
-
-* Front
-  * 출처 사이트 목록
-    * PoiemaWeb : [https://poiemaweb.com](https://poiemaweb.com)
-    * [https://stackoverflow.com/questions/47397834/uncaught-typeerror-childreni-children-is-not-a-function](https://stackoverflow.com/questions/47397834/uncaught-typeerror-childreni-children-is-not-a-function)
-    * [https://www.ecma-international.org/ecma-262/8.0/index.html](https://www.ecma-international.org/ecma-262/8.0/index.html)
-    * [https://ipex.tistory.com/entry/React-%EC%8B%9C%EC%9E%91-%EC%A0%84-%EC%A4%80%EB%B9%84](https://ipex.tistory.com/entry/React-%EC%8B%9C%EC%9E%91-%EC%A0%84-%EC%A4%80%EB%B9%84)
-    * [https://intellegibilisverum.tistory.com/entry/ES5-%EC%97%90%EC%84%9C%EC%9D%98-%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8](https://intellegibilisverum.tistory.com/entry/ES5-%EC%97%90%EC%84%9C%EC%9D%98-%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8)
-    * [https://es5.github.io/\#x10](https://es5.github.io/#x10)
-    * [https://medium.com/@kkak10/lexical-environment-4e0cffcad98d](https://medium.com/@kkak10/lexical-environment-4e0cffcad98d)
-    * [https://www.slideshare.net/youngbeomrhee/javascript-executable-code-execution-context-lexical-environment](https://www.slideshare.net/youngbeomrhee/javascript-executable-code-execution-context-lexical-environment)
-  * 출처 도서
-    * 자바스크립트 완벽가이드
-  * 출처 Git Repository
-    * [https://github.com/getify/You-Dont-Know-JS](https://github.com/getify/You-Dont-Know-JS)
-    * [https://github.com/leonardomso/33-js-concepts](https://github.com/leonardomso/33-js-concepts)
-    * [https://github.com/nefe/You-Dont-Need-jQuery](https://github.com/nefe/You-Dont-Need-jQuery)
-* Back
-* Dev
-* Infra
-* Conference
+* 본인은 자바개발자이다.
+  * 개인적으로 polyglot은 개발자의 덕목에서 중요한 요소이지만, 하나의 언어를 깊게 알면 어떤 언어로 개발을 하던 ployglot은 저절로 따라온다고 믿는편이다.
+  * 하나를 집중적으로 이해도 하고싶지만 하나의 언어만 하고싶지는 않다보니 같은 jvm 에서 작동하고 튜토리얼을 진행해보니 거부감이 들지않고 친숙하다.
+* 각 언어의 다양한 장점을 수용하고 다양한 프로그래밍이 가능하다.
+  * 어떤 플랫폼에서 작동하는 앱을 만들지 선택지가 넓다.
+  * 객체지향, 함수형, 비동기, 스크립트 등으로 프로그래밍이 가능하다.
+  * 특정 기능을 활용하면 영어문장을 기술하는 듯한 프로그래밍이 가능한데 이점에 대해서 관심이 높아졌다.
+  * statement 보다 expression을 지향하는 점이 마음에 들었다.
+* 나의 새로운 강점으로 만들고싶다.
+  * 새 언어를 배우며 생기는 호기심과 이를 이용해서 개발에 대한 열정을 다시 키우고싶다.
+  * 빈약하거나 기억속에 사라진 기본기를 다시한번 다지고싶다.
+* 통제력과 안정성을 지닌 언어
+  * 개발을 함에 있어 본인은 다음과 같은 코딩을 지양한다.
+    * 언어의 간결한 문법을 악이용해서 code convention이 잡히지 않은 PHP 스타일의 코딩.
+    * 언어의 장점을 이용하지 않은 경험에만 의존하는 코딩.
+    * 충분히 검증되지 않은 방식을 본인의 학습과 이직을 위해 작성하는 코딩.
+  * 위와 반대되는 코딩을 지향하고 앞으로 실천하기에 코틀린이 좋은 파트너가 되리라 생각한다.
