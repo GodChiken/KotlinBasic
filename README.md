@@ -1,3 +1,1 @@
 # KotlinBasic
-
-ㅁㄴㅇㄹ
