@@ -16,6 +16,9 @@ class Loop {
         for (i in 'a'..'z') {
             println(i)
         }
+        for (i in 10 downTo 1) {
+            println(i)
+        }
     }
 }
 
