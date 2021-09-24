@@ -19,6 +19,11 @@ class Loop {
         for (i in 10 downTo 1) {
             println(i)
         }
+
+        val nameList = listOf("A", "B", "C")
+        for ((i, name) in nameList.withIndex()) {
+            println("$name 은 $i 째 인덱스에 위치합니다.")
+        }
     }
 }
 
