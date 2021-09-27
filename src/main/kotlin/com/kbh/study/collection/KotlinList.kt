@@ -3,10 +3,10 @@ package com.kbh.study.collection.list
 fun main() {
     //immutable 형태이므로 자식요소에 대한 변경이 불가하다.
     //val list: List<Int> = ArrayList()
-    val a = listOf("사과", "딸기", "배")
-    println(a[1])
+    val fruitList = listOf("사과", "딸기", "배")
+    println(fruitList[1])
 
-    for (fruit in a) {
+    for (fruit in fruitList) {
         println(fruit)
     }
 
@@ -14,15 +14,29 @@ fun main() {
 
     //mutable 형태이므로 자식요소에 대한 변경이 가능하다.
     //val list: MutableList<Int> = ArrayList()
-    val b = mutableListOf(6, 3, 1)
-    println(b)
+    val numberList = mutableListOf(6, 3, 1)
+    println(numberList)
 
-    b.add(4)
-    println(b)
+    numberList.add(4)
+    println(numberList)
 
-    b.add(2, 8)
-    println(b)
+    numberList.add(2, 8)
+    println(numberList)
 
-    b.removeAt(0)
-    println(b)
+    numberList.removeAt(0)
+    println(numberList)
+
+    /**
+     * 이뮤터블은 잘 알다시피 변경이 불가하다.
+     * 코틀린의 리스트 인터페이스는 자바의 Arrays.asList()로 만든 JDK 객체의 뷰로 동작한다. (객체의 뷰가 무슨말인지 잘 모르겠다.)
+     * Collection -> _Arrays -> _ArraysJvm에 들어가보면 add()가 포합되어있지 않다.
+     * 그렇기 때문에 일반적인 방법으로 변경이 불가하다.
+     * "+"를 사용하게되면 이뮤터블이라 하더라도 추가적인 내용을 기술할 수 있다.
+     * 논리적인 접근으로 따져보면 이에 반대되는 "-"도 존재한다.
+     * */
+
+    val fruitList2 = fruitList + "포도"
+    val fruitList3 = fruitList - "사과"
+    println(fruitList2)
+    println(fruitList3)
 }
