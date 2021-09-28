@@ -1,4 +1,4 @@
-package com.kbh.study.collection.list
+package com.kbh.study.collection
 
 fun main() {
     //immutable 형태이므로 자식요소에 대한 변경이 불가하다.
@@ -31,7 +31,7 @@ fun main() {
      * 코틀린의 리스트 인터페이스는 자바의 Arrays.asList()로 만든 JDK 객체의 뷰로 동작한다. (객체의 뷰가 무슨말인지 잘 모르겠다.)
      * Collection -> _Arrays -> _ArraysJvm에 들어가보면 add()가 포합되어있지 않다.
      * 그렇기 때문에 일반적인 방법으로 변경이 불가하다.
-     * "+"를 사용하게되면 이뮤터블이라 하더라도 추가적인 내용을 기술할 수 있다.
+     * "+"를 사용하게되면 이뮤터블 리스트를 활용하여 새로운 리스트를 가질 수 있다.
      * 논리적인 접근으로 따져보면 이에 반대되는 "-"도 존재한다.
      * */
 
