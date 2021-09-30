@@ -8,6 +8,9 @@ fun main() {
     for (entry in map) {
         println("${entry.key} and ${entry.value}")
     }
+    for ((key, value) in map) {
+        println("$key and $value")
+    }
 
     println(map.containsKey("김보훈"))
     println(map.containsKey("황경화"))
