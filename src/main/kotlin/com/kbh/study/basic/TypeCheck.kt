@@ -15,12 +15,33 @@ fun main() {
     val animal: Any = Animal()
     val animal2: Any = Animal()
 
+    val animalWithAge : Any = AnimalWithAge(11)
+    val animalWithAge2 : Any = AnimalWithAge(11)
+
     println(animal == animal2)
+    println(animalWithAge == animalWithAge2)
+    println(checkWithWhen("text"))
+    println(checkWithWhen(123))
+}
+
+fun checkWithWhen(text : Any) = when(text){
+    is String -> "$text Yes"
+    else -> "get out!! is not String!!"
 }
 
 
 class Animal {
     override operator fun equals(other: Any?) = other is Animal
+    // 혹은 아래와같이 부정형으로도 사용할 수 있다.
+    //override operator fun equals(other: Any?) = other !is Animal
+}
+/**
+ *  보통 자바에서 instanceof()로 해당 타입인지 검증을 해도 내용물까지 검증하려면 캐스팅과정은 필수다.
+ *  코틀린에서 is 키워드를 사용해서 충분히 같은 타입인지 확인했기 때문에, 이후에 연산에서 smart cast 가 가능해진다.
+ *  고로 명시적인 캐스팅을 줄이고 객체의 동일여부를 충분히 검증이 가능하다.
+*/
+class AnimalWithAge(val age: Int) {
+    override operator fun equals(other: Any?) = other is AnimalWithAge && age == other.age
     // 혹은 아래와같이 부정형으로도 사용할 수 있다.
     //override operator fun equals(other: Any?) = other !is Animal
 }
