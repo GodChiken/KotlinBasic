@@ -77,6 +77,7 @@ fun copyFromTo3(from: Array<out Fruit>, to: Array<in Fruit>) {
 fun main() {
     val bananaArray: Array<Banana> = arrayOf()
     val orangeList: List<Orange> = listOf()
+    val bananaList: List<Banana> = listOf()
 
     //receiveFruitsByArray(bananaArray) : type mismatch
     receiveFruitsByList(orangeList)
@@ -93,4 +94,6 @@ fun main() {
     copyFromTo(fruitBasket1, fruitBasket2)
     //copyFromTo(bananaBasket, fruitBasket1) type mismatch
     copyFromTo2(bananaBasket, fruitBasket1)
+
+    copyFromTo3(bananaBasket,fruitBasket1)
 }
