@@ -62,3 +62,37 @@ fun useCarObject(): Pair<Int, String> {
     val color = car.color
     return year to color
 }
+
+/**
+ * Car 클래스에서 변경되어 실습하는 클래스이다.
+ * 커스텀 getter,setter를 가진 필드를 정의하고 field 키워드를 사용한 백킹필드를 사용하지 않는다면 백킹필드가 생성되지 않는다.
+ * yearOfMake는 프로퍼티이며, theColor는 필드가 아닌 파라미터다. 파라미터에 var, val를 사용하지 않는다.
+ * 파라미터 theColor은 프로퍼티 color과 이름을 동일하게 하여 java에서의 this.color = color 느낌으로 가져갈 수 있으나 혼란을 줄 수 있다는
+ * 저자의 말도 있기에 실제 코드컨벤션을 정해서 사용시에는 충분한 논의를 하는게 좋을것 같다.
+ *
+ * 충분히 비어있는지 검증하는 코드 이후 field에 의해 참조되고 있는 필드에 할당한다.
+ *
+ * */
+class HaveNameCar(val yearOfMake: Int, theColor: String) {
+    var fuelLevel = 100
+    var color = theColor
+        set(value) {
+            if (value.isBlank()) {
+                throw RuntimeException("no empty")
+            }
+            field = value
+        }
+}
+
+fun main() {
+    val haveNameCar = HaveNameCar(2021, "Bo")
+    haveNameCar.color = "Green"
+    haveNameCar.fuelLevel--
+    println(haveNameCar.fuelLevel)
+    try {
+        haveNameCar.color = ""
+    } catch (ex: Exception) {
+        println(ex.message)
+    }
+    println(haveNameCar.color)
+}
