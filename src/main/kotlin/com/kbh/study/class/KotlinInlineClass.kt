@@ -17,15 +17,40 @@ package com.kbh.study.`class`
  * https://blog.jetbrains.com/ko/kotlin/2021/02/new-language-features-preview-in-kotlin-1-4-30/
  * */
 
-inline class KotlinInlineClass (val name : String){
+inline class KotlinInlineClass(val name: String) {
     /*이전엔 불가했으나 지금은 가능하다.*/
     init {
         require(name.isNotEmpty())
     }
 }
+
 @JvmInline
-value class Color(val rgb : Int)
+value class Color(val rgb: Int)
+
+
+/**
+ * Inline classes vs type aliases
+ * Inline class와 Type Alias 의 공통점 : 타입에 대해 새로운 이름을 부여하고, 런타임에 원래 타입으로 사용된다는 공통점이 있다.
+ * Inline class와 Type Alias 의 차이점 : Type Alias는 기존 타입에 별칭을 부여하는 것이기 때문에 Alias 타입의 호환성이 보장되는 반면
+ * Inline class는 기존 타입을 새로운 타입으로 구분짓기 때문에 호환되지 않는다.
+ */
+typealias NameTypeAlias = String
+
+inline class NameInlineClass(val s: String)
+
+fun acceptString(s: String) {}
+fun acceptNameTypeAlias(n: NameTypeAlias) {}
+fun acceptNameInlineClass(p: NameInlineClass) {}
 
 fun main() {
+    val nameAlias: NameTypeAlias = ""
+    val nameInlineClass: NameInlineClass = NameInlineClass("")
+    val string: String = ""
 
+    acceptString(nameAlias) // ok
+    ///acceptString(nameInlineClass) // error
+
+    // And vice versa:
+    acceptNameTypeAlias(string) // ok
+    //acceptNameInlineClass(string) // error
 }
