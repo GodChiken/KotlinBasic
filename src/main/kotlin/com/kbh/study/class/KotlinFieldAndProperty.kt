@@ -83,7 +83,52 @@ class HaveNameCar(val yearOfMake: Int, theColor: String) {
             field = value
         }
 }
+/*
+* HaveNameCar 를 자바로 변환한다면 다음과 같다.
+* intellij action -> Show Kotlin Bytecode -> decompile 로 확인한다.
+* 즉 멤버변수이냐, 생성자의 파라미터이냐 차이로 이해하자
+* */
+/*
+public final class HaveNameCar {
+    private int fuelLevel;
+    @NotNull
+    private String color;
+    private final int yearOfMake;
 
+    public final int getFuelLevel() {
+        return this.fuelLevel;
+    }
+
+    public final void setFuelLevel(int var1) {
+        this.fuelLevel = var1;
+    }
+
+    @NotNull
+    public final String getColor() {
+        return this.color;
+    }
+
+    public final void setColor(@NotNull String value) {
+        Intrinsics.checkNotNullParameter(value, "value");
+        if (StringsKt.isBlank((CharSequence)value)) {
+            throw (Throwable)(new RuntimeException("no empty"));
+        } else {
+            this.color = value;
+        }
+    }
+
+    public final int getYearOfMake() {
+        return this.yearOfMake;
+    }
+
+    public HaveNameCar(int yearOfMake, @NotNull String theColor) {
+        Intrinsics.checkNotNullParameter(theColor, "theColor");
+        super();
+        this.yearOfMake = yearOfMake;
+        this.fuelLevel = 100;
+        this.color = theColor;
+    }
+}*/
 fun main() {
     val haveNameCar = HaveNameCar(2021, "Bo")
     haveNameCar.color = "Green"
