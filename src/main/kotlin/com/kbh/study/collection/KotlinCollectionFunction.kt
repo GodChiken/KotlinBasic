@@ -26,13 +26,15 @@ fun main() {
     // groupBy : 특정 값을 기준으로 하여 grouping 하는 함수
     println(personList.groupBy { it.birthYear })
     /**
-    partition : 특정 조건으로 분리하는 함. Pair 로 반환되며 각각의 요서는 first, second 로 접근이 된다.
-    혹은 Destructuring Declarations 을 활용하여 받고자하는 변수명을 기술하여도 좋다.
-    오른쪽이 참 결과 기준이다.
-     */
+     *  partition : 특정 조건으로 분리하는 함. Pair 로 반환되며 각각의 요서는 first, second 로 접근이 된다.
+     *  혹은 Destructuring Declarations 을 활용하여 받고자하는 변수명을 기술하여도 좋다.
+     *  오른쪽이 참 결과 기준이다.
+     *  가령 구조분해를 활용하거나 사용하지 않지만 특별히 기술을 해줘야 다른 코딩을 할 수있는경우 "_" 로 의미를 전달할 수 있다.
+    */
     val (over2000, under2000) = personList.partition { it.birthYear > 2000 }
     println(over2000)
     println(under2000)
+    val (_, under) = personList.partition { it.birthYear > 2000 }
 
     // flatMap : 각 요소의 여러 결과를 단일 리스트로 만드는데 사용된다.
     // toList : 분할이 가능한 해당 요소를 구성하는 모든 요소들을 리스트화 해서 반환한다

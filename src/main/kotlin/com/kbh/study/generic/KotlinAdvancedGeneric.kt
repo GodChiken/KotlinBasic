@@ -88,6 +88,7 @@ fun main() {
     fruitArray.plus(Orange())
     //fruitList = fruitList + Orange()
 
+    //익명 파라미터이기에 특별히 의미가 없다는 의미로 '_' 가 사용된다.
     val fruitBasket1 = Array(3) { _ -> Fruit() }
     val fruitBasket2 = Array(3) { _ -> Fruit() }
     val bananaBasket = Array(3) { _ -> Banana()}
