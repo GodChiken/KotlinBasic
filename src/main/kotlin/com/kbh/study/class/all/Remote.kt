@@ -36,6 +36,7 @@ interface Remote {
     }
 }
 
+/*
 class TV {
     var volume = 0
 }
@@ -49,3 +50,38 @@ class TVRemote(val tv: TV) : Remote {
         tv.volume--
     }
 }
+*/
+
+class TV {
+    private var volume = 0
+    val remote: Remote
+    get() = TVRemote()
+
+    override fun toString(): String {
+        return "Volumne : ${volume}"
+    }
+    inner class TVRemote : Remote {
+        override fun up() {
+            volume++
+        }
+
+        override fun down() {
+            volume--
+        }
+
+        override fun toString(): String {
+            return "Remote : ${this@TV.toString()}"
+        }
+    }
+}
+
+fun main() {
+    val tv = TV()
+    val remote = tv.remote
+    println("$tv")
+    remote.up()
+    println("After increasing : $tv")
+    remote.doubleUp()
+    println("After doubleUp : $tv")
+}
+
