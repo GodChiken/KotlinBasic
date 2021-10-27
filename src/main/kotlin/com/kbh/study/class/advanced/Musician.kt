@@ -1,4 +1,4 @@
-package com.kbh.study.`class`.all
+package com.kbh.study.`class`.advanced
 
 abstract class Musician(val name: String, val activeForm : Int){
     abstract fun instrument() : String
