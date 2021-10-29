@@ -1,4 +1,4 @@
-package com.kbh.study.`class`.sealed
+package com.kbh.study.`class`.advanced.sealed
 
 /**
  * 클래스 설계자가 지정한 클래스에만 상속하도록 하는 일종의 중간영역이 필요한 점에서 고안된 방법중 하나다.
