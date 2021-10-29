@@ -65,7 +65,7 @@ fun useCarObject(): Pair<Int, String> {
 
 /**
  * Car 클래스에서 변경되어 실습하는 클래스이다.
- * 커스텀 getter,setter를 가진 필드를 정의하고 field 키워드를 사용한 백킹필드를 사용하지 않는다면 백킹필드가 생성되지 않는다.
+ * 커스텀 getter,setter를 가진 필드를 정의하고 field 키워드를 사용하지 않는다면 백킹필드가 생성되지 않는다.
  * yearOfMake는 프로퍼티이며, theColor는 필드가 아닌 파라미터다. 파라미터에 var, val를 사용하지 않는다.
  * 파라미터 theColor은 프로퍼티 color과 이름을 동일하게 하여 java에서의 this.color = color 느낌으로 가져갈 수 있으나 혼란을 줄 수 있다는
  * 저자의 말도 있기에 실제 코드컨벤션을 정해서 사용시에는 충분한 논의를 하는게 좋을것 같다.
@@ -129,6 +129,22 @@ public final class HaveNameCar {
         this.color = theColor;
     }
 }*/
+
+/**
+ * 백킹 프로퍼티 (Backing Property)
+ * 백킹 필드를 사용하면 getter 및 setter 범위에서만 속성 필드에 액세스할 수 있다.
+ * 그러나 백킹 필드 기능이 적용되지 않는 경우나 getter 또는 setter를 사용하지 않고 직접 필드에 액세스하려면 백킹 프로퍼티을 사용해야 한다.
+*/
+
+private var _table: Map<String, Int>? = null
+val table: Map<String, Int>
+    get() {
+        if (_table == null) {
+            _table = HashMap() // Type parameters are inferred
+        }
+        return _table ?: throw AssertionError("Set to null by another thread")
+    }
+
 fun main() {
     val haveNameCar = HaveNameCar(2021, "Bo")
     haveNameCar.color = "Green"
