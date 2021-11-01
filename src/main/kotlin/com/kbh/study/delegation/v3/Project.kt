@@ -42,4 +42,5 @@ class Manager(val worker: Worker) {
 fun main() {
     val doe = Manager(JavaProgrammer())
     doe.work()
+    //val coder : JavaProgrammer = doe  //type mismatch
 }
