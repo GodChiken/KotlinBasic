@@ -70,7 +70,7 @@ class TV {
             volume--
         }
         // this : TVRemote, this@TV : TVRemote 클래스인 외부 클래스 TV
-        // super@TV : 더 상위에 외부 클래스(Any) 에 접근하고 싶은경우는 사용하나 자주하면 다형성과 메소드 오버라이드의 의도를 해치게 된다.
+        // super@TV : 더 상위에 외부 클래스(Any) 에 접근하고 싶은경우는 사용하나 자주하면 다형성과 메서드 오버라이드의 의도를 해치게 된다.
         override fun toString(): String {
             return "Remote : ${this@TV.toString()}"
         }
