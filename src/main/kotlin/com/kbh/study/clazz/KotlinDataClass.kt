@@ -1,4 +1,4 @@
-package com.kbh.study.`class`
+package com.kbh.study.clazz
 
 fun main() {
     val a = General("경화",37)

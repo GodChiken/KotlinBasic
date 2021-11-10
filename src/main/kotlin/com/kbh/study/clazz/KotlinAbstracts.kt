@@ -1,4 +1,4 @@
-package com.kbh.study.`class`
+package com.kbh.study.clazz
 
 fun main() {
     val bathRoom = BathRoom()
@@ -13,7 +13,7 @@ fun main() {
 abstract class Room {
     abstract fun eat()
     fun enter(){
-        println("방에 입장했다.");
+        println("방에 입장했다.")
     }
 }
 

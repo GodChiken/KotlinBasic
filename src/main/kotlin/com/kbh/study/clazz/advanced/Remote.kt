@@ -1,4 +1,4 @@
-package com.kbh.study.`class`.advanced
+package com.kbh.study.clazz.advanced
 
 
 /**

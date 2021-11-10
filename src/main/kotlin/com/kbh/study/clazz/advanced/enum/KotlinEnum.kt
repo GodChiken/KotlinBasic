@@ -1,4 +1,4 @@
-package com.kbh.study.`class`.advanced.enum
+package com.kbh.study.clazz.advanced.enum
 
 enum class Suit(val symbolText: Char) {
     CLUBS('\u2663'),

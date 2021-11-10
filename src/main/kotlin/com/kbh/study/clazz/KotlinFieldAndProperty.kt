@@ -1,4 +1,4 @@
-package com.kbh.study.`class`
+package com.kbh.study.clazz
 
 /**
  * 코틀린에서 필드는 없다.

@@ -1,4 +1,4 @@
-package com.kbh.study.`class`.advanced
+package com.kbh.study.clazz.advanced
 
 /**
  * 코틀린은 기본적으로 자바와 다르게 클래스 설계자의 의도를 벗어나는 것을 방지해준다.

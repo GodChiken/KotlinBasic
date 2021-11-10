@@ -1,11 +1,11 @@
-package com.kbh.study.`class`
+package com.kbh.study.clazz
 
 fun main() {
     val a = Animal("김보훈", 34, "dog")
     val b = Dog("김보훈", 34)
     a.introduce()
     b.introduce()
-    b.bark();
+    b.bark()
     val c = Cat("황경화",36)
     c.meow()
 }

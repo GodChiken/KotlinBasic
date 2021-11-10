@@ -1,4 +1,4 @@
-package com.kbh.study.`class`
+package com.kbh.study.clazz
 
 /**
  * 클래스는 추상화를 나타내며 프리미티브 타입또한 동일하다.

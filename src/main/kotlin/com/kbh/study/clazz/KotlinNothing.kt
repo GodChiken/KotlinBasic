@@ -1,4 +1,4 @@
-package com.kbh.study.`class`
+package com.kbh.study.clazz
 
 /**
  * 리턴 값이 없는경우 void 키워드르 사용하곤한다. expression이 리턴을 하지않는경우 Unit를 void 대신 사용된다.

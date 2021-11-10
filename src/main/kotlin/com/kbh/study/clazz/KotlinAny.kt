@@ -1,4 +1,4 @@
-package com.kbh.study.`class`
+package com.kbh.study.clazz
 
 /**
  * Any 는 자바의 Object에 대응된다.
