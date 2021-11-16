@@ -16,7 +16,10 @@ package com.kbh.study.function.lamda.inline
  * noinline : action2()의 호출은 인라인이 될 수 없다. 성능상 이득이없고 전달되는 람다에 논리컬 리턴을 사용할 수 없다.
  * crossinline : action2()는 호출되는 부분에서 인라인이 된다.
  *
- * invokeTwoByCrossinline
+ * 람다에서 인라인과 리턴을 위해서 다음 사항을 숙지하자.
+ * 라벨이 없는 리턴은 항상 함수에서 발생하며 인라인이 아닌 람다에서 허용되지 않는다.
+ * 함수명은 라벨의 기본값이 되지만 라벨명을 지어 가독성을 높혀야한다.
+ * 눈에 띄는 성능적인 측정이 확인된 이후 코드 최적화(inline과 같은)를 한다.
 * */
 
 /*inline fun invokeTwoByErrorExample(
