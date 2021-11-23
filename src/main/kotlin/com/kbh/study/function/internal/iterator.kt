@@ -73,6 +73,30 @@ fun main() {
         person -> person.firstName
     }
 
+    /**
+     * sequence
+     *
+     * 컬렉션의 성능향상을 위한 최적화 랩퍼를 의미한다.
+     * 자바와 다르게 Stream<t>를 활용하지 않아도 컬렉션에서 바로 사용이 가능하다.
+     * 자바에서 성능상의 이유때문에 컬렉션에서 직접 사용하지 못하도로고 디자인이 되어있다.
+     *
+     * 콜렉션 사이즈 작을때 내부 반복자를 사용해야하며, 사이즈가 큰 경우에 시퀀스를 사용하여 내부 반복자를 사용해야한다.
+     * 위의 예시에서 작을경우 시퀀스를 사용하지 않기떄문에 콜렉션의 연산이 계속해서 일어나는 반면 크기가 크고 시퀀스를 사용하는경우 지연 실행이 가능하다.
+     *
+     * 지연실행을 하는 이유는 불필요한 경우 실행을 연기하여 시간과 자원을 절약하기 위함이다.
+     *
+     * 시퀀스를 활용하여 연산하는경우 최종연산 전까지는 항상 또다른 시퀀스가 다음 연산으로 전달된후 최종연산시 파이프라인의 실행 결과를 리턴한다.
+    * */
+    val result11 = peopleList
+        .filter (::isAdult)
+        .map (::fetchFirstName)
+        .first()
+
+    val result12 = peopleList.asSequence()
+        .filter (::isAdult)
+        .map (::fetchFirstName)
+        .first()
+
     println(result)
     println(result2)
     println(result3)
@@ -89,4 +113,17 @@ fun main() {
     println(result9)
     println(result10)
 
+    println(result11)
+    println(result12)
+
+}
+
+fun isAdult(person: Person): Boolean {
+    println("isAdult called for ${person.firstName}")
+    return person.age > 17
+}
+
+fun fetchFirstName(person: Person): String {
+    println("fetchFirstName called for ${person.firstName}")
+    return person.firstName
 }
