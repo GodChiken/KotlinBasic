@@ -1,6 +1,7 @@
 package com.kbh.study.function.internal
 
-data class Person(val firstName : String, val age: Int)
+data class Person(val firstName: String, val age: Int)
+
 val peopleList = listOf(
     Person("Sara", 12),
     Person("Jill", 51),
@@ -11,15 +12,15 @@ val peopleList = listOf(
     Person("Sue", 10),
 )
 val familyList = listOf(
-    listOf(Person("Jack",40), Person("Jill", 40)),
-    listOf(Person("Eve",18), Person("Adam", 18))
+    listOf(Person("Jack", 40), Person("Jill", 40)),
+    listOf(Person("Eve", 18), Person("Adam", 18))
 )
 
 fun main() {
     val result = peopleList.filter { person -> person.age > 20 }
         .map { person -> person.firstName }
         .map { name -> name.uppercase() }
-        .reduce { names, name -> "$names, $name"}
+        .reduce { names, name -> "$names, $name" }
 
     val result2 = peopleList.filter { person -> person.age > 20 }
         .map { person -> person.firstName }
@@ -38,17 +39,17 @@ fun main() {
      * */
 
     val result4 = peopleList.map { person -> person.firstName }
-        .map (String::lowercase)
-        .map {name -> listOf(name, name.reversed())}
+        .map(String::lowercase)
+        .map { name -> listOf(name, name.reversed()) }
 
     val result5 = peopleList.map { person -> person.firstName }
-        .map (String::lowercase)
-        .map {name -> listOf(name, name.reversed())}
+        .map(String::lowercase)
+        .map { name -> listOf(name, name.reversed()) }
         .flatten()
 
     val result6 = peopleList.map { person -> person.firstName }
-        .map (String::lowercase)
-        .flatMap {name -> listOf(name, name.reversed())}
+        .map(String::lowercase)
+        .flatMap { name -> listOf(name, name.reversed()) }
 
 
     /**
@@ -69,8 +70,8 @@ fun main() {
 
     val result9 = peopleList.groupBy { person -> person.firstName.first() }
 
-    val result10 = peopleList.groupBy({ person -> person.firstName.first() }) {
-        person -> person.firstName
+    val result10 = peopleList.groupBy({ person -> person.firstName.first() }) { person ->
+        person.firstName
     }
 
     /**
@@ -86,15 +87,15 @@ fun main() {
      * 지연실행을 하는 이유는 불필요한 경우 실행을 연기하여 시간과 자원을 절약하기 위함이다.
      *
      * 시퀀스를 활용하여 연산하는경우 최종연산 전까지는 항상 또다른 시퀀스가 다음 연산으로 전달된후 최종연산시 파이프라인의 실행 결과를 리턴한다.
-    * */
+     * */
     val result11 = peopleList
-        .filter (::isAdult)
-        .map (::fetchFirstName)
+        .filter(::isAdult)
+        .map(::fetchFirstName)
         .first()
 
     val result12 = peopleList.asSequence()
-        .filter (::isAdult)
-        .map (::fetchFirstName)
+        .filter(::isAdult)
+        .map(::fetchFirstName)
         .first()
 
     println(result)
