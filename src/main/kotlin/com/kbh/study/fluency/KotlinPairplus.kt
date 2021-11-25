@@ -1,7 +1,5 @@
 package com.kbh.study.fluency
 
-import kotlin.math.abs
-
 /**
  * 연산자 오버로딩
  *
