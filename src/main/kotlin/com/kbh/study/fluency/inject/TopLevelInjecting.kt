@@ -1,5 +1,7 @@
 package com.kbh.study.fluency.inject
 
+import java.net.URL
+
 /**
  * 코틀린에서 개발자가 다른 JVM 언어에서 작성된 클래스를 포함한 모든 클래스의 속성과 메서드를 인젝팅이 가능하고
  * 인젝션을 런타임 패치나 클래스 로딩없이 수행한다.
@@ -60,6 +62,44 @@ fun String.isFuck(): Boolean {
 // 코드블럭 대신
 fun String.shout() = uppercase()
 
+/**
+ * iterator() 메소드를 클래스로 인젝팅시 도움되는 사항
+ *
+ * 반복자를 만들떄 익명객체로 만들 수 있다. (객체 표현식으로 사용하는 익명객체)
+ * start 속성을 이용하여 range 첫번째 요소에 접근이 가능하고 ClosedRange<T> 클래스의 endclusive를 이용하여 마지막 요소에 접근할 수 있다.
+ * >= 사용시 compareTo() 실행된다.
+ * 뮤터블 String을 사용하기 위해 StringBuilder룰 활용.
+ *
+ * */
+
+operator fun ClosedRange<String>.iterator() =
+    object : Iterator<String> {
+        private val next = StringBuilder(start)
+        private val last = endInclusive
+        override fun hasNext() =
+            last >= next.toString() && last.length >= next.length
+
+        override fun next(): String {
+            val result = next.toString()
+            val lastCharacter = next.last()
+            if (lastCharacter < Char.MAX_VALUE) {
+                next.setCharAt(next.length - 1, lastCharacter + 1)
+            } else {
+                next.append(Char.MIN_VALUE)
+            }
+            return result
+        }
+    }
+
+/**
+ * static method injecting
+ *
+ * 클래스의 companion object를 확장해서 static method를 인젝팅할 수있다.
+ * 즉 클래스가 companion object를 가지고 있다면 전재가 성립되어야한다.
+ *
+ * */
+fun String.Companion.toURL(link: String) = URL(link)
+
 fun main() {
     val circle = Circle(100,100,25)
     val point1 = Point(110,110)
@@ -75,4 +115,10 @@ fun main() {
     println(dad.isPalindrome())
     println(dad.shout())
     println("Fuck".isFuck())
+
+    for (word in "hell".."help"){
+        print("$word, ")
+    }
+
+    val url : URL = String.toURL("https://pargprog.com")
 }
