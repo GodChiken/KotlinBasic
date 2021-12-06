@@ -43,7 +43,20 @@ val Circle.area: Double
  * in, contains() 두가지로 해석이 가능하고 뜻은 동일하다.
  * 다만 연산자에도 허용해야 하는경우는 operator 키워드를 기술하면 끝이다.
  * */
-operator fun Circle.contains(point: Point) =
+/*operator fun Circle.contains(point: Point) =
+    (point.x - cx) * (point.x - cx) + (point.y - cy) * (point.y - cy) < radius * radius*/
+
+/**
+ * Infix(중위표기) Operator Injection
+ *
+ * 여타 다양한 코드를 보면, 점과 괄호의 난무로 인하여 가독성이 떨어지는 경우가 있다.
+ * infix는 이 경우 해법이 될 수 있으며, '.' 와 띄어쓰기를 통한 표현이 모두 가능하므로 함수에 보다 유연성을 줄 수 있다.
+ *
+ * 그러나 단점은 하나의 파라미터만 받아야하며 가변인자와 기본파라미터도 사용이 불가하다.
+ * */
+
+
+operator infix fun Circle.contains(point: Point) =
     (point.x - cx) * (point.x - cx) + (point.y - cy) * (point.y - cy) < radius * radius
 
 /**
@@ -107,6 +120,7 @@ fun main() {
 
     println(circle.contains(point1))
     println(circle.contains(point2))
+    println(circle contains point2)
     println(point1 in circle)
     println(point2 in circle)
     println("Area is ${circle.area}")
