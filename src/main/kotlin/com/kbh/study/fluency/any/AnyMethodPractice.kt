@@ -12,6 +12,31 @@ class Mailer{
     fun send() = "...sending...\n$details"
 }
 
+fun createMailer() = Mailer()
+
+fun prepareAndSend(mailer: Mailer) = mailer.run {
+    from("from@naver.com")
+    to("to@naver.com")
+    subject("Your code Fuck")
+    body("...details...")
+    send()
+}
+
+fun prepareMailer(mailer: Mailer):Unit {
+    mailer.run {
+        from("from@naver.com")
+        to("to@naver.com")
+        subject("Your code Fuck")
+        body("...details...")
+        send()
+    }
+}
+
+fun sendMail(mailer: Mailer): Unit {
+    mailer.send()
+    println("Mail sent")
+}
+
 fun main() {
     val mailer = Mailer()
 
@@ -61,4 +86,37 @@ fun main() {
         send()
     }
     println(sendMailer)
+
+    /**
+     * let 을 이용한 객체를 인자로 넘기기
+     *
+     * 함수에서 인스턴스를 받았지만 해당 인스턴스를 다른 메소드의 인자로 전달하고 싶은경우 매끄럽지 못한 경우가 많다.
+     * 이런 경우는 굉장히 허다하다.
+     *
+     * 아규먼트로 전달된 람다의 결과를 사용하기 원한다면 let()은 좋은 방법이 된다.
+     * 그러나 let()을 호출한 타깃 객체에 지속적인 작업이 필요한 경우 also()를 활용한다.
+     * */
+    val mailerByCreateMailer = createMailer()
+    val resultByPrepareAndSend = prepareAndSend(mailerByCreateMailer)
+    println(resultByPrepareAndSend)
+
+    var letMailer = createMailer().let { letMailerElement -> prepareAndSend(letMailerElement) }
+    letMailer = createMailer().let { prepareAndSend(it) }
+    letMailer = createMailer().let(::prepareAndSend)
+
+    println(letMailer)
+
+    /**
+     * also 를 사용한 void 함수 체이닝
+     *
+     * void 함수(Unit return)는 일반적으로 메서드 체이닝이 불가하나 also()를 활용한다면 가능하다.
+     * 타깃 객체를 람다에 파라미터로 전달하고 람다의 리턴을 무시한 후 다시 호출한 곳으로 리턴하기 때문에 조금 더 자연스러운 코드가 가능하다.
+     * */
+    val alsoMailer = createMailer()
+    prepareMailer(alsoMailer)
+    sendMail(mailer)
+
+    createMailer()
+        .also (::prepareMailer)
+        .also (::sendMail)
 }
