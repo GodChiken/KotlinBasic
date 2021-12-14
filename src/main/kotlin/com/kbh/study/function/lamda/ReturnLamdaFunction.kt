@@ -30,6 +30,8 @@ val checkLengthFiveAndSetType: (String) -> Boolean = { name -> name.length == 5 
 /**
  * 변수의 타입은 타입추론을 사용하고 리턴타입을 지정하는 방식을 사용하는 방식도 있다.
  * 특정 소수의 예외적 상황이 아니라면 사용할 이유가없다.(무엇인지 모르겠으나 비동기를 다룰때 체크한다.)
+ *
+ * 익명함수내 파라미터에는 디폴트 값을 지정할 수 없다.
  * */
 val checkLengthFiveAndAnonymousFunction = fun(name: String): Boolean { return name.length == 5 }
 
