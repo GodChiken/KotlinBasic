@@ -11,12 +11,10 @@ import java.time.LocalDate
 infix fun String.at(point: Double) = point.toString()
 infix fun String.by(point: Double) = point.toString()
 infix fun Int.days(ago: LocalDate): LocalDate { return ago.minusDays(this.toLong()) }
-//infix fun String.meeting(start:String,end:String) = println("$start -> $end")
 
-
-infix fun String.meeting(function: () -> Unit) {
+/*infix fun String.meeting(function: () -> Unit) {
     println(function())
-}
+}*/
 
 fun main() {
     val starts = "";
@@ -40,12 +38,14 @@ fun main() {
     //infix 키워드와 함께 사용하면 더욱 자연스운 코드가 얻어진다.
     2 days ago
 
-    "Release Planning".meeting ({
+    //해당 코드를 원할하게 동작하려면 몇가지 구성할게 있으나, 연습차원에서 최대한 참고하지 않고 작성해본다.
+    //람다는 가장 마지막 것을 리턴하므로 코드에서 의도하는 결과(start, end 둘다 호출되는 느낌을 준다)는 얻을 수 없었다.
+    /*"Release Planning".meeting ({
         starts at 14.30
         end by 15.20
     })
     "Release Planning" meeting {
         starts at 14.30
         end by 15.20
-    }
+    }*/
 }
