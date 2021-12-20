@@ -20,7 +20,7 @@ val xmlString = xml {
 }
 /**
  * 람다를 파라미터로 받는 함수로 설계하고 빌드를 대신한 XMLBuilder 객체를 리턴하도록 구성한다.
- * 일종의 부트스트랩? 함수이며, XMLBuilder타입의 리시버를 가지는 block(람다)이다.
+ * 일종의 부트스트랩 함수이며, XMLBuilder타입의 리시버를 가지는 block(람다)이다.
  * XMLBuilder의 컨텍스트에서 어떤 메소드나 함수의 호출도 작동되도록 구성했다.
  * 코드블록을 리시버의 컨텍스트에서 실행시키고 블록의 결과를 리턴하기위해 확장함수 run()이 사용된다.
  * */
@@ -45,6 +45,14 @@ class XMLBuilder {
         Node(rootElementName).apply(block)
 }
 
+/**
+ * root()에 전달된 블록에서 langsAndAuthors의 맵 요소를 반복하고 각 이름과 저자를 중첩 요소(element)로 두게된다.
+ * 그리고 root()함수 내에서 생성된 노드에서 존재해야 xml의 규칙이 성립된다. 즉 블록의 리시버이다.
+ *
+ * 이런 구조를 성립하기 위해서 element 메서드를 Node 내부에 만들고 자식 Node를 만들어 현재의 Node에 추가하도록 구성해야한다.
+ *
+ * 각 Node 인스턴스는 정적 속성 콜렉션, 자식노드 컬렉션, 텍스트값을 유지해야한다.
+ * */
 class Node(val name: String) {
     var attributes: Map<String, String> = mutableMapOf()
     var children: List<Node> = listOf()
@@ -80,6 +88,10 @@ class Node(val name: String) {
     override fun toString() = toString(0)
 }
 
+/**
+ * xml(), element()내에서 사용된 리시버와 함께 사용되는 람다의 기능 덕에 Node 인스턴스의 컨텍스트에서 람다를 실행할 수 있게됬다.
+ * 결론적으로 DSL에서 this 없이 Node의 메소드를 호출할 수 있게 됬다.
+ * */
 fun main() {
     println(xmlString)
 }
