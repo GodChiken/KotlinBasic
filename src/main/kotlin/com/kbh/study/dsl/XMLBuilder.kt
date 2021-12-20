@@ -27,8 +27,18 @@ val xmlString = xml {
 fun xml(block: XMLBuilder.() -> Node): Node = XMLBuilder().run(block)
 
 /**
- * xml() 함수에 람다를 전달할 첫 줄의 코드는 root() 함수를 호출했다.
- * ..
+ * xml() 함수에 람다를 전달할 첫 줄의 코드는 root() 함수를 호출한다.
+ * 이것은 XMLBuilder의 인스턴스의 컨텍스트에서 실행되기 때문이다.
+ *
+ * root() 메서드는 xml의 root 요소의 이름(language)을 받기 위한 rootElementName과
+ * 리시버로 사용될 Node 인스턴스 컨텍스트에서 실행되는 block을 받는다.
+ *
+ * 람다는 Unit으로 선언되었으므로 아무것도 리턴하지 않는다.
+ *
+ * root() 메소드는 Node의 인스턴스를 생성하고 rootElementName을 아규먼트로 생성자에 전달한다.
+ * 이후 block(람다)를 생성된 Node 인스턴스의 컨텍스트에서 실행시킨다.
+ *
+ * run()대신 apply()를 활용하여 람다가 Node 인스턴스의 컨텍스트에서 실행되게하고 리턴하기 위함이다.
  * */
 class XMLBuilder {
     fun root(rootElementName: String, block: Node.() -> Unit): Node =
