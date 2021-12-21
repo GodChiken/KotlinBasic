@@ -1,4 +1,4 @@
-package com.kbh.study.dsl
+package com.kbh.study.dsl.xml
 
 /**
  * 언어와 저자로 이루어진 데이터를 XML을 만든다.
