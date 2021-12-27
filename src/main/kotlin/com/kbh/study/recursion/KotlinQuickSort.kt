@@ -42,7 +42,7 @@ tailrec fun factorialRecByTailrecButError(n: Int): BigInteger =
 
 tailrec fun factorial(n: Int,
     result: BigInteger = 1.toBigInteger()): BigInteger =
-    if (n <= 0) result else factorial(n - 1, n.toBigInteger())
+    if (n <= 0) result else factorial(n - 1, result * n.toBigInteger())
 
 // fold() : 람다와 함께 초기값을 받는 점을 제외하면 reduce()와 동일하다.
 fun factorialIterative(n: Int): BigInteger =
@@ -53,4 +53,5 @@ fun main() {
     println(factorialRec(5))
     println(factorialIterative(5))
     println(factorialRecByTailrecButError(5))
+    println(factorial(5))
 }
