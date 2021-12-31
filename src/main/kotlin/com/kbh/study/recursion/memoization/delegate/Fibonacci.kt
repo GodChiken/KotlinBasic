@@ -34,6 +34,6 @@ val fib: (Int) -> Long by Memoize {n: Int ->
 
 fun main() {
     println(measureTimeMillis { fib(40) })
-    //println(measureTimeMillis { fib(45) })
-    //println(measureTimeMillis { fib(500) })
+    println(measureTimeMillis { fib(45) })
+    println(measureTimeMillis { fib(500) })
 }
