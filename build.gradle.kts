@@ -23,8 +23,17 @@ tasks.test {
     useJUnitPlatform()
 }
 
+//https://runebook.dev/ko/docs/kotlin/docs/reference/opt-in-requirements
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
+}
+tasks.withType<KotlinCompile>().configureEach {
+    kotlinOptions.freeCompilerArgs += "-Xopt-in=org.mylibrary.OptInAnnotation"
+}
+
+//https://kotlinlang.org/docs/opt-in-requirements.html#experimental-status-of-the-opt-in-requirements
+kotlin.sourceSets.all {
+    languageSettings.useExperimentalAnnotation("kotlin.RequiresOptIn")
 }
 
 application {
