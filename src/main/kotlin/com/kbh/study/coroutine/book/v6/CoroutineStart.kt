@@ -18,12 +18,21 @@ import java.util.concurrent.Executors
  *
  * UNDISPATCHED는 아직까지 실험적인 기능이며, 사용하기위해서 @UseExperimental 어노테이션을 적어야한다.
  * @UseExperimental 을 사용하지만 deprecate 됬으므로 @OptIn 어노테이션을 사용한다.
- * 책에서는 command 라인에 적어서 컴파일 옵션을 넣어서 다음과 같은 @OptIn의 경고를 없애지만
  *
+ * 책에서는 command 라인에 적어서 컴파일 옵션을 넣어서 다음과 같은 @OptIn의 경고를 없앤다.
  * "This class can only be used with the compiler argument '-Xopt-in=kotlin.RequiresOptIn'"
  *
  * intellij, gradle 프로젝트 기준으로 build.gradle.kts에서 freeCompileArgs 에 옵션을 추가해야한다.
  * Compiler option : -Xopt-in=kotlin.RequiresOptIn
+ *
+ * 여러 시도에 버전업하여 시도해봤으나 커맨드에서 실행하는 법도 애매하다.
+ * command : kotlinc-jvm -opt-in=kotlin.Experimental
+ *                       -classpath (코루틴 코어 jar path)
+ *                       -script (실행 스크립트)
+ * 코루틴 코어 jar path : ~/.gradle/caches/jars-8/c32d2d72b023e8a58bb09d62dfff1c3a/kotlinx-coroutines-core-1.3.8.jar
+ * 실행 스크립트 : ./src/main/kotlin/com/kbh/study/coroutine/book/v6/CoroutineStart.kt
+ *
+ * 커뮤니티에 질문 후 최신화
  *
  * */
 
@@ -56,18 +65,31 @@ fun main() {
                 println("called task1 and task2 from ${Thread.currentThread()}")
             }
 
-            println("done.")
+            println("done.\n\n")
         }
 
-    Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors())
-        .asCoroutineDispatcher().use {
-            runBlocking {
-                println("starting in Thread ${Thread.currentThread()}")
-                withContext(Dispatchers.Default) { task1() }
-                launch { task2() }
-                println("ending in Thread from ${Thread.currentThread()}")
-            }
-        }
+    runBlocking {
+        println("starting in Thread ${Thread.currentThread()}")
+        withContext(Dispatchers.Default) { task1() }
+        launch { task2() }
+        println("ending in Thread from ${Thread.currentThread()}")
+    }
 }
+//서스펜션 포인트 이후에 스레드 스위칭
 /*
+starting in Thread Thread[main @coroutine#1,5,main]
+start task1 in Thread Thread[DefaultDispatcher-worker-1 @coroutine#1,5,main]
+end task1 in Thread Thread[DefaultDispatcher-worker-3 @coroutine#1,5,main]
+ending in Thread from Thread[main @coroutine#1,5,main]
+start task2 in Thread Thread[main @coroutine#2,5,main]
+end task2 in Thread Thread[main @coroutine#2,5,main]
+*/
+//코루틴 컨텍스 변경
+/*
+running in Thread Thread[main @top#1,5,main]
+start task1 in Thread Thread[DefaultDispatcher-worker-1 @top#1,5,main]
+end task1 in Thread Thread[DefaultDispatcher-worker-3 @top#1,5,main]
+start task2 in Thread Thread[DefaultDispatcher-worker-3 @task#2,5,main]
+end task2 in Thread Thread[DefaultDispatcher-worker-3 @task#2,5,main]
+running in Thread from Thread[main @coroutine#1,5,main]
 */
