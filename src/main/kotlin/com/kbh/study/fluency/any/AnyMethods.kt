@@ -4,6 +4,7 @@ package com.kbh.study.fluency.any
 *
 * 람다 표현식을 받고 실행하여 객체를 리턴하는 4가지의 메서드가 존재한다.
 * also(), apply(), let(), run() 이 존재한다.
+* https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fnf1nj%2FbtqviF0WrxB%2FEq605A7Z8UJxIe3zqMeE5K%2Fimg.png
 *
 * result = context.oneOfTheseFourMethods { optionalParameter - >
 *   ...body ...
