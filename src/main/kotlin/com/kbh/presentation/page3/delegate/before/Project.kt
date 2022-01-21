@@ -1,4 +1,4 @@
-package com.kbh.presentation.delegate.before
+package com.kbh.presentation.page3.delegate.before
 
 /**
  * 델리게이션을 빌트인 기능으로 제공하지 않는 자바 스타일의 코딩으로 풀어낸 코드이다.

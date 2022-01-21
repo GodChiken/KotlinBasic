@@ -1,4 +1,4 @@
-package com.kbh.presentation
+package com.kbh.presentation.page2
 
 // 클래스 선언부에는 생성자 키워드가 생략이 가능하다.
 class KotlinConstructor constructor(var name: String, var birthYear: Int) {

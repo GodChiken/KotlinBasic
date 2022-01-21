@@ -1,10 +1,16 @@
-package com.kbh.presentation
+package com.kbh.presentation.page1
+
+import java.awt.SystemColor.text
 
 fun reply(condition: Boolean): String? =                        // Nullability is part of Kotlin’s type system
     if (condition) "I'm fine" else null
 
 fun error(): Nothing =                                          // Always throw an exception
     throw IllegalStateException("Shouldn't be here")
+
+lateinit var name : String
+fun returnName() = if (::name.isInitialized) { name }
+                   else { null }
 
 fun main() {
     val a: String? = null
@@ -15,7 +21,7 @@ fun main() {
 
     // elvis operator - ?:
     // null check 이후 대체값을 활용
-    println(a ?: "null".lowercase())
+    println(a ?: "null".uppercase())
 
     // non-null operator - !!.
     // NPE 허용 연산자
@@ -23,11 +29,12 @@ fun main() {
 
     // 함수에도 활용이 가능하다.
     // NPE 체크를 위한 if 분기문보다 훨신 세련된 방법이다.
-    a?.run {
+    returnName()?.run {
         println(uppercase())
         println(lowercase())
     }
-fun main() {
+}
+/*fun main() {
     val condition = false                                       // Try replacing `true` with `false` and run the sample!
     val message = reply(condition)                              // The result is nullable
 
@@ -44,7 +51,7 @@ fun main() {
 
     println(nonNull)
 
-}
+}*/
 /**
  * Java에서는 null safe하기에는 고민할게 많다. 이에 대한 대안으로 Optional이 나왔지만 세가지 문제가 있다.
  * 첫째, 개발자가 직접 사용해야하면 컴파일러가 강제하지 않는다.

@@ -1,4 +1,4 @@
-package com.kbh.presentation.delegate.after
+package com.kbh.presentation.page3.delegate.after
 
 /**
  * 직접구현하는 것 보다 'by' 키워드를 통해 빌트인 델리게이션을 활용하여 비교적 간단하게 델리게이션을 구현했다.

@@ -1,8 +1,4 @@
-package com.kbh.study.dsl.xml.scope
-
-import com.kbh.presentation.page3.dsl.xml.scope.Node
-import com.kbh.presentation.page3.dsl.xml.scope.XMLBuilder
-import com.kbh.presentation.page3.dsl.xml.scope.XMLMarker
+package com.kbh.presentation.page3.dsl.xml.scope
 
 /**
  * 호스트언어(스코프의 속성접근이나 임의의 함수와 메소드 호출 등)에서 할수있는 일은 내부 DSL코드에서도 할 수있다.
@@ -39,9 +35,9 @@ annotation class XMLMarker
 val langsAndAuthors =
     mapOf("Javascript" to "Eich", "Java" to "Gosling", "Ruby" to "Matz")
 
-val xmlString = com.kbh.presentation.page3.dsl.xml.scope.xml {
+val xmlString = xml {
     root("languages") {
-        com.kbh.presentation.page3.dsl.xml.scope.langsAndAuthors.forEach { name, author ->
+        langsAndAuthors.forEach { name, author ->
             element("language", "name" to name) {
                 element("author") { text(author) }
                 //root("시작점이 이곳에서 만들어지면 안되는데??") {}
@@ -99,5 +95,5 @@ class Node(val name: String) {
 }
 
 fun main() {
-    println(com.kbh.presentation.page3.dsl.xml.scope.xmlString)
+    println(xmlString)
 }

@@ -1,8 +1,8 @@
 package com.kbh.study.delegation.v3
 
-import com.kbh.presentation.delegate.before.JavaProgrammer
-import com.kbh.presentation.delegate.before.Manager
-import com.kbh.presentation.delegate.before.Worker
+import com.kbh.presentation.page3.delegate.before.JavaProgrammer
+import com.kbh.presentation.page3.delegate.before.Manager
+import com.kbh.presentation.page3.delegate.before.Worker
 
 /**
  * 델리게이션을 빌트인 기능으로 제공하지 않는 자바 스타일의 코딩으로 풀어낸 코드이다.

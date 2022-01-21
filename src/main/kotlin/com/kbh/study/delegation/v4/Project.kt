@@ -1,8 +1,8 @@
 package com.kbh.study.delegation.v4
 
-import com.kbh.presentation.delegate.after.JavaProgrammer
-import com.kbh.presentation.delegate.after.Manager
-import com.kbh.presentation.delegate.after.Worker
+import com.kbh.presentation.page3.delegate.after.JavaProgrammer
+import com.kbh.presentation.page3.delegate.after.Manager
+import com.kbh.presentation.page3.delegate.after.Worker
 
 /**
  * 직접구현하는 것 보다 'by' 키워드를 통해 빌트인 델리게이션을 활용하여 비교적 간단하게 델리게이션을 구현했다.

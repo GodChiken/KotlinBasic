@@ -1,7 +1,4 @@
-package com.kbh.study.dsl.xml
-
-import com.kbh.presentation.page3.dsl.xml.Node
-import com.kbh.presentation.page3.dsl.xml.XMLBuilder
+package com.kbh.presentation.page3.dsl.xml
 
 /**
  * 언어와 저자로 이루어진 데이터를 XML을 만든다.
@@ -12,9 +9,9 @@ val langsAndAuthors =
 /**
  * 루트를 기반으로 하여 0개 이상의 정적속성과 자식 요소를 포함하는 XML의 특성을 바탕으로 작성된 XML DSL
  * */
-val xmlString = com.kbh.presentation.page3.dsl.xml.xml {
+val xmlString = xml {
     root("languages") {
-        com.kbh.presentation.page3.dsl.xml.langsAndAuthors.forEach { name, author ->
+        langsAndAuthors.forEach { name, author ->
             element("language", "name" to name) {
                 element("author") { text(author) }
             }
@@ -96,5 +93,5 @@ class Node(val name: String) {
  * 결론적으로 DSL에서 this 없이 Node의 메소드를 호출할 수 있게 됬다.
  * */
 fun main() {
-    println(com.kbh.presentation.page3.dsl.xml.xmlString)
+    println(xmlString)
 }
