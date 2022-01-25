@@ -1,4 +1,4 @@
-package com.kbh.presentation.page2
+package com.kbh.presentation.page1
 
 fun main() {
     val boHun = BoHun()

@@ -1,4 +1,4 @@
-package com.kbh.study.function
+package com.kbh.presentation.page2
 
 infix fun Int.multiplyWinnerScore(x: Int): Int = this * x
 infix fun Int.andPlusCooperation(x: Int): Int = this + x
